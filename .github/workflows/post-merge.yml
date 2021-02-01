@@ -27,5 +27,5 @@ jobs:
       - name: Run a one-line script
         env:
           DOCKER_ACCOUNT: ${{ secrets.DOCKER_ACCOUNT }}
-        working-directory: extensions/extension-1
+        working-directory: extensions/extenson-1
         run: make build-image
