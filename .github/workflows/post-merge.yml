@@ -41,5 +41,6 @@ jobs:
           id: setcontext
       - uses: Azure/k8s-deploy@v1.3
         with:
-          manifests: extensions/extension-1/k8s
+          manifests: |
+            extensions/extension-1/k8s/deployment.yaml
           namespace: ci-cd-dev
