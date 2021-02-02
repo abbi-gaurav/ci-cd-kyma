@@ -34,3 +34,8 @@ jobs:
           DOCKER_ACCOUNT: ${{ secrets.DOCKER_ACCOUNT }}
         working-directory: extensions/extension-1
         run: make push-image
+      - uses: azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.DEV_KUBECONFIG }}
+          id: setcontext
