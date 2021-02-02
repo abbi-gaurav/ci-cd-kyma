@@ -39,3 +39,7 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.DEV_KUBECONFIG }}
           id: setcontext
+      - uses: Azure/k8s-deploy@v1.3
+        with:
+          manifests: extensions/extension-1/k8s
+          namespace: ci-cd-dev

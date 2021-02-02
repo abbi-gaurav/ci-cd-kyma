@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: extension-1
+  name: extension-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: extension-1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: extension-1
+    spec:
+      containers:
+      - image: gabbi/extension-1:0.0.1
+        name: extension-1
+        resources: {}
+status: {}
