@@ -22,17 +22,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
       # Runs a single command using the runners shell
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_ACCOUNT }}
           password: ${{ secrets.DOCKER_TOKEN }}
+      - uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 11
       - name: Build & push image
         env:
           DOCKER_ACCOUNT: ${{ secrets.DOCKER_ACCOUNT }}
-        working-directory: extensions/extension-1
+        working-directory: extensions/orders-extension
         run: make push-image
       - uses: azure/k8s-set-context@v1
         with:
@@ -40,7 +42,11 @@ jobs:
           kubeconfig: ${{ secrets.DEV_KUBECONFIG }}
           id: setcontext
       - uses: Azure/k8s-deploy@v1.3
+        name: Deploy Orders Extension
         with:
           manifests: |
-            extensions/extension-1/k8s/deployment.yaml
+            extensions/orders-extension/k8s/deployment.yaml
+            extensions/orders-extension/k8s/event-trigger.yaml
+            extensions/orders-extension/k8s/service-binding-usage.yaml
+            extensions/orders-extension/k8s/api-rule.yaml
           namespace: ci-cd-dev
