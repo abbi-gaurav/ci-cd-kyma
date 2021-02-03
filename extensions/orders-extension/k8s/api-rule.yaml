@@ -17,4 +17,4 @@ spec:
   service:
     host: orders-extension
     name: orders-extension
-    port: 8080
+    port: 80

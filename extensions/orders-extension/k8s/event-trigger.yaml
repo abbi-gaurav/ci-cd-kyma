@@ -7,7 +7,7 @@ spec:
   filter:
     attributes:
       eventtypeversion: v1
-      source: mp-gaurav-10-mock-commerce  # name of the application/system
+      source: mp-gaurav-mock-commerce  # name of the application/system
       type: order.created # event type
   subscriber:
     ref:
