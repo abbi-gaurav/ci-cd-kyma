@@ -7,3 +7,7 @@
 ## Promote to production
 
 ![Promote Flow](assets/promote-flow.svg)
+
+## Deployed Extension
+
+![deployed-extension](assets/deployed-extension.svg)
