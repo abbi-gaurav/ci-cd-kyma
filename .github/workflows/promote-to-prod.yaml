@@ -10,10 +10,11 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  promote:
+  deploy-orders-extension:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    env:
+      NAMESPACE: ci-cd-prod
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -22,9 +23,11 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.PROD_KUBECONFIG }}
-          id: setcontext
-      - uses: Azure/k8s-deploy@v1.3
+      - uses: azure/setup-helm@v1
         with:
-          manifests: |
-            extensions/extension-1/k8s/deployment.yaml
-          namespace: ci-cd-prod
+          version: 'v3.5.1'
+      - name: Helm Deployment
+        working-directory: extensions/orders-extension/helm-chart/orders-extension
+        run: helm install orders-extension . -f ./values-prod.yaml --dry-run --debug
+      - name: Run smoke tests on prod environment
+        run: echo "running smoke tests"
