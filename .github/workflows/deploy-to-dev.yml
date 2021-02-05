@@ -25,6 +25,12 @@ jobs:
           kubeconfig: ${{ secrets.DEV_KUBECONFIG }}
       - name: Test kubectl
         run: kubectl -n $NAMESPACE get deployment
+      - name: Variable Substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: extensions/orders-extension/k8s/api-rule.yaml
+        env:
+          host: orders-extension-${{ env.NAMESPACE }}
       - uses: Azure/k8s-deploy@v1.3
         name: Deploy Orders Extension
         with:
