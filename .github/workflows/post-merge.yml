@@ -17,7 +17,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    env:
+      NAMESPACE: ci-cd-dev
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -41,7 +42,7 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.DEV_KUBECONFIG }}
       - name: Test kubectl
-        run: kubectl get namespace
+        run: kubectl -n env.NAMESPACE get namespace
       - uses: Azure/k8s-deploy@v1.3
         name: Deploy Orders Extension
         with:
@@ -50,4 +51,4 @@ jobs:
             extensions/orders-extension/k8s/event-trigger.yaml
             extensions/orders-extension/k8s/service-binding-usage.yaml
             extensions/orders-extension/k8s/api-rule.yaml
-          namespace: ci-cd-dev
+          namespace: ${{ env.NAMESPACE }}
