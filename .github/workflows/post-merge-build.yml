@@ -37,18 +37,3 @@ jobs:
           DOCKER_ACCOUNT: ${{ secrets.DOCKER_ACCOUNT }}
         working-directory: extensions/orders-extension
         run: make push-image
-      - uses: azure/k8s-set-context@v1
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.DEV_KUBECONFIG }}
-      - name: Test kubectl
-        run: kubectl -n env.NAMESPACE get namespace
-      - uses: Azure/k8s-deploy@v1.3
-        name: Deploy Orders Extension
-        with:
-          manifests: |
-            extensions/orders-extension/k8s/deployment.yaml
-            extensions/orders-extension/k8s/event-trigger.yaml
-            extensions/orders-extension/k8s/service-binding-usage.yaml
-            extensions/orders-extension/k8s/api-rule.yaml
-          namespace: ${{ env.NAMESPACE }}
