@@ -40,10 +40,7 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.DEV_KUBECONFIG }}
-      - uses: azure/setup-kubectl@v1
       - name: Test kubectl
-        env:
-          KUBECONFIG: ${{ secrets.DEV_KUBECONFIG }}
         run: kubectl get namespace
       - uses: Azure/k8s-deploy@v1.3
         name: Deploy Orders Extension
