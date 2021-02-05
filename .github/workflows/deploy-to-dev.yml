@@ -31,6 +31,11 @@ jobs:
           files: 'extensions/orders-extension/k8s/api-rule.yaml'
         env:
           spec.service.host: orders-extension-${{ env.NAMESPACE }}
+      - uses: azure/setup-helm@v1
+        with:
+          version: 'v3.5.1'
+      - name: Test helm
+        run: helm ls
       - uses: Azure/k8s-deploy@v1.3
         name: Deploy Orders Extension
         with:
