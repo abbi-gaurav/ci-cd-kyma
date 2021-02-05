@@ -28,6 +28,6 @@ jobs:
           version: 'v3.5.1'
       - name: Helm Deployment
         working-directory: extensions/orders-extension/helm-chart/orders-extension
-        run: helm install . -f ./values-dev.yaml --dry-run --debug
+        run: helm install orders-extension . -f ./values-dev.yaml --dry-run --debug
       - name: Run smoke tests on dev environment
         run: echo "running smoke tests"
