@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: PROMOTE-TO-PROD
+name: promote-to-prod
 
 # Controls when the action will run. 
 on:
@@ -18,8 +18,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Run Smoke Tests
-        run: echo "running smoke tests"
       - uses: azure/k8s-set-context@v1
         with:
           method: kubeconfig

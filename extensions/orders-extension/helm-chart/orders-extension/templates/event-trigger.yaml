@@ -1,0 +1,16 @@
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: {{ include "orders-extension.fullname" . }}
+spec:
+  broker: default
+  filter:
+    attributes:
+      eventtypeversion: v1
+      source: mp-gaurav-mock-commerce  # name of the application/system
+      type: order.created # event type
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: {{ include "orders-extension.fullname" . }}

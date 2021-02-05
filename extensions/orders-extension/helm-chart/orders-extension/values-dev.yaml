@@ -1,0 +1,21 @@
+# Default values for orders-extension.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: gabbi/orders-extension
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "0.0.1"
+
+service:
+  type: ClusterIP
+  port: 80
+
+bindings:
+  occ:
+    ref: gallant-montalcini
+    gatewayUrlVarName: SAP_COMMERCE_CLOUD_COMMERCE_WEBSERVICES_0229C59F_778E_4E5C_9D65_DB237D9434A1_GATEWAY_URL
+
+config:
+  baseSite: electronics
