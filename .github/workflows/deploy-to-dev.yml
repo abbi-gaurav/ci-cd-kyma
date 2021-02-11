@@ -27,7 +27,7 @@ jobs:
         with:
           version: 'v3.5.1'
       - name: Helm Deployment
-        working-directory: extensions/orders-extension/helm-chart/orders-extension
-        run: helm install orders-extension . -f ./values-dev.yaml
+        working-directory: k8s-resources
+        run: helm upgrade k8s-resources . -f ./values-dev.yaml --install
       - name: Run smoke tests on dev environment
         run: echo "running smoke tests"

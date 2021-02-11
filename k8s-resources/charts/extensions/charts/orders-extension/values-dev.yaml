@@ -12,10 +12,5 @@ service:
   type: ClusterIP
   port: 80
 
-bindings:
-  occ:
-    ref: gallant-montalcini
-    gatewayUrlVarName: SAP_COMMERCE_CLOUD_COMMERCE_WEBSERVICES_0229C59F_778E_4E5C_9D65_DB237D9434A1_GATEWAY_URL
-
 config:
   baseSite: electronics

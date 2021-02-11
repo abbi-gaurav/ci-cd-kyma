@@ -1,0 +1,16 @@
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: {{ include "order-created.fullname" . }}
+spec:
+  broker: default
+  filter:
+    attributes:
+      eventtypeversion: v1
+      source: mp-gaurav-mock-commerce-3 #change it to your connected system name as it appears in Kyma
+      type: order.created
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: {{ include "order-created.fullname" . }}
