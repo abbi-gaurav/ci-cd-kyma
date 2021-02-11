@@ -42,7 +42,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           name: My Kyma Functions Code Coverage
-          directory: coverage
+          directory: functions/coverage
       - uses: romeovs/lcov-reporter-action@v0.2.16
         if: github.event_name == 'pull_request'
         with:
