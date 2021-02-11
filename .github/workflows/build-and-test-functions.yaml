@@ -7,6 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   pull_request:
     branches: [ main ]
+    paths:
+      - "functions/**"
   push:
     branches: [ main ]
     paths:
@@ -17,7 +19,10 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
+  test-functions:
+    defaults:
+      run:
+        working-directory: functions
     name: Test the Event triggers on node 12
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +32,6 @@ jobs:
         with:
           node-version: 12
       - name: npm test-with-coverage
-        working-directory: functions
         run: |
           npm install
           BASE_SITE=electronics GATEWAY_URL=https://mock.commerce.gateway npm run test-with-coverage
