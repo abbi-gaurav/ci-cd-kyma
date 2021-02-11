@@ -7,7 +7,7 @@ spec:
   filter:
     attributes:
       eventtypeversion: v1
-      source: mp-gaurav-mock-commerce-3 #change it to your connected system name as it appears in Kyma
+      source: {{ .Values.global.sources.commerce }}
       type: order.created
   subscriber:
     ref:

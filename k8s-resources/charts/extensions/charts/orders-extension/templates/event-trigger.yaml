@@ -7,8 +7,8 @@ spec:
   filter:
     attributes:
       eventtypeversion: v1
-      source: mp-gaurav-mock-commerce  # name of the application/system
-      type: order.created # event type
+      source: {{ .Values.global.sources.commerce }}
+      type: order.created
   subscriber:
     ref:
       apiVersion: v1
