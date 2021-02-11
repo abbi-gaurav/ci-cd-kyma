@@ -5,12 +5,12 @@ metadata:
 spec:
   type: git
   runtime: nodejs12
-  source: {{ .Values.global.repository.name }}
+  source: {{ printf "%s-repository" .Release.Name }}
   reference: main
   baseDir: functions/order-created
   env:
   - name: REDIS_HOST
-    value: kyma-ci-cd-redis
+    value: {{ printf "%s-redis" .Release.Name }}
   - name: REDIS_PORT
     value: "6379"
   - name: "BASE_SITE"
