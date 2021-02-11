@@ -35,9 +35,6 @@ jobs:
         run: |
           npm install
           BASE_SITE=electronics GATEWAY_URL=https://mock.commerce.gateway npm run test-with-coverage
-      - name: ls
-        run: |
-          ls coverage
       - uses: codecov/codecov-action@v1.1.1
         if: github.ref == 'refs/heads/main'
         with:
