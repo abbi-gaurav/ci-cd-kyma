@@ -48,7 +48,7 @@ public class OrdersController {
         });
     }
 
-    @GetMapping(path = "/orders")
+    @GetMapping
     public Map<String, OrderDetails> getOrders(){
         return this.map;
     }
