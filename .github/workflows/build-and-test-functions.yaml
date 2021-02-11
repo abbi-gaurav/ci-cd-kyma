@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: pr-check-functions
+name: build-and-test-functions
 
 # Controls when the action will run. 
 on:
@@ -27,6 +27,7 @@ jobs:
         with:
           node-version: 12
       - name: npm test-with-coverage
+        working-directory: functions
         run: |
           npm install
           BASE_SITE=electronics GATEWAY_URL=https://mock.commerce.gateway npm run test-with-coverage
