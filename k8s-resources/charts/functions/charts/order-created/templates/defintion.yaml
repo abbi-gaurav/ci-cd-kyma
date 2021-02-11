@@ -5,7 +5,7 @@ metadata:
 spec:
   type: git
   runtime: nodejs12
-  source: kyma-functions-repo
+  source: {{ .Values.global.repository.name }}
   reference: main
   baseDir: functions/order-created
   env:
