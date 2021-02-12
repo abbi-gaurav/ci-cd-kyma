@@ -32,11 +32,11 @@ Functions are configured using [Kyma GitRepository feature](https://kyma-project
 
 Deployment resources are defined as [Helm-charts](https://helm.sh/) which are available under [k8s-resources](./k8s-resources/README.md)
 
-Deployment to a dev landscape is done via the github workflow [deploy-to-dev](.github/workflows/deploy-to-dev.yml)
+Deployment to a dev landscape is done via the Github workflow [deploy-to-dev](.github/workflows/deploy-to-dev.yml)
 
 Any dev landscape specific configuration is provided in the [values-dev.yaml](k8s-resources/values-dev.yaml).
 
-For any confidential data, it is possible to create secrets and use environment variables with github workflow.
+For any confidential data, it is possible to create secrets and use environment variables with Github workflow.
 
 The not-expiring Kubeconfigs are obtained following the instructions [kubeconfig-for-sa](https://github.com/kyma-incubator/examples/tree/master/kubeconfig-for-sa)
 
