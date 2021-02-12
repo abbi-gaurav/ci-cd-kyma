@@ -1,5 +1,5 @@
-![status](https://github.com/abbi-gaurav/ci-cd-kyma-functions/workflows/status/badge.svg)
-[![codecov](https://codecov.io/gh/abbi-gaurav/ci-cd-kyma-functions/branch/main/graph/badge.svg?token=TYYQSBARQS)](https://codecov.io/gh/abbi-gaurav/ci-cd-kyma-functions)
+![status](https://github.com/abbi-gaurav/kyma-ci-cd-microservcies/workflows/build-and-test-functions/badge.svg?branch=main)
+[![codecov](https://codecov.io/gh/abbi-gaurav/kyma-ci-cd-microservcies/branch/main/graph/badge.svg?token=6C76S6XFKI)](https://codecov.io/gh/abbi-gaurav/kyma-ci-cd-microservcies)
 
 # CI/CD with Kyma Functions
 

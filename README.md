@@ -11,3 +11,7 @@
 ## Deployed Extension
 
 ![deployed-extension](assets/deployed-extension.svg)
+
+## Deployed Functions
+
+![deployed-functions](assets/deployed-functions.svg)
