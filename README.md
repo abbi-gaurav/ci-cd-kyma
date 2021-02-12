@@ -28,6 +28,8 @@ Post merge, the assets (in this case docker images) are created for microservice
 
 Functions are configured using [Kyma GitRepository feature](https://kyma-project.io/docs/components/serverless/#tutorials-create-a-function-from-git-repository-sources) which automatically pulls the source code and updates the running function.
 
+### Deploying to Dev
+
 Deployment resources are defined as [Helm-charts](https://helm.sh/) which are available under [k8s-resources](./k8s-resources/README.md)
 
 Deployment to a dev landscape is done via the github worklow [deploy-to-dev](.github/workflows/deploy-to-dev.yml)
@@ -38,7 +40,7 @@ For any confidential data, it is possible to create secrets and use environment 
 
 The not-expiring Kubeconfigs are obtained following the instructions [kubeconfig-for-sa](https://github.com/kyma-incubator/examples/tree/master/kubeconfig-for-sa)
 
-Below are the steps in **deploy-to-dev** worklow. 
+Below are the steps in **deploy-to-dev** worklow.
 
 It uses various actions from Microsoft azure to set up the Kubernetes environment such as:
 
@@ -70,6 +72,20 @@ jobs:
       - name: Run smoke tests on dev environment
         run: echo "running smoke tests"
 ```
+
+The worklow will deploy the workloads as well all the necessary configurations such as:
+
+- API Rules
+- ServiceBindingUsage
+- K8s Deployments, Services
+- and any other required resources.
+
+The only exception is to create the Service Instances for required servcies and events. For Services, Secrets are also required to be created. In the future releases, these manuals steps will also be obviated.
+
+![service-instances](assets/service-instance.png)
+![secret](assets/secret.png)
+
+The corresponding details then need to (secret name and gateway url variable name), then needs to configured in [values-dev.yaml](k8s-resources/values-dev.yaml) & [values-prod.yaml](k8s-resources/values-prod.yaml) for dev and prod landscapes respectively.
 
 ## Promote to production
 
