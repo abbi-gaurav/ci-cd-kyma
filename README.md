@@ -38,7 +38,14 @@ For any confidential data, it is possible to create secrets and use environment 
 
 The not-expiring Kubeconfigs are obtained following the instructions [kubeconfig-for-sa](https://github.com/kyma-incubator/examples/tree/master/kubeconfig-for-sa)
 
-Below are the steps in **deploy-to-dev** worklow
+Below are the steps in **deploy-to-dev** worklow. 
+
+It uses various actions from Microsoft azure to set up the Kubernetes environment such as:
+
+- Setting the K8S context
+- Setting up Helm
+
+The `KUBECONFIG` is configured safely as a environment secret in the repository settings.
 
 ```yaml
 jobs:
