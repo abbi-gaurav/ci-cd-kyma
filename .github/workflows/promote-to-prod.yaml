@@ -25,6 +25,8 @@ jobs:
         with:
           version: 'v3.5.1'
       - name: Helm Deployment
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
         working-directory: k8s-resources
         run: helm upgrade k8s-resources . -f ./values-prod.yaml --install
       - name: Run smoke tests on prod environment
