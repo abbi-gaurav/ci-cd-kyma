@@ -15,4 +15,4 @@ spec:
         value: sap.kyma.custom.{{ .Values.global.sources.commerce }}.order.created.v1
   protocol: ""
   protocolsettings: {}
-  sink: http://{{ include "orders-extension.fullname" }}.{{ .Release.Namespace }}.svc.cluster.local
+  sink: http://{{ include "orders-extension.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
