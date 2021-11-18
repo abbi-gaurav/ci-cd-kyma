@@ -24,6 +24,6 @@ spec:
               protocol: TCP
           env:
           - name: GATEWAY_URL
-            value: $({{ .Values.global.extensions.ordersExtension.bindings.occ.gatewayUrlVarName }})
+            value: $({{ .Values.global.bindings.ccv2.occ.gatewayUrlVarName }})
           - name: BASE_SITE
             value: {{ .Values.config.baseSite }}

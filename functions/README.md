@@ -9,7 +9,7 @@
 
 **Build a test pipeline for my Kyma functions**
 
-As a developer, I would like to ensure
+As a developer, I would like to ensure:
 
 - Code quality of my Kyma funtions
 - All checks related to code styling, security best practices are followed

@@ -4,7 +4,7 @@ metadata:
   name: {{ include "order-created.fullname" . }}
 spec:
   serviceBindingRef:
-    name: {{ .Values.global.functions.orderCreated.bindings.occ.ref }}
+    name: {{ .Values.global.bindings.ccv2.occ.ref }}
   usedBy:
     kind: serverless-function
     name: {{ include "order-created.fullname" . }}

@@ -7,7 +7,7 @@ spec:
     envPrefix:
       name: ""
   serviceBindingRef:
-    name: {{ .Values.global.extensions.ordersExtension.bindings.occ.ref }}
+    name: {{ .Values.global.bindings.ccv2.occ.ref }}
   usedBy:
     kind: deployment
     name: {{ include "orders-extension.fullname" . }}
