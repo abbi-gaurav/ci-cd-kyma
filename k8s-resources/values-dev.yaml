@@ -5,4 +5,4 @@ global:
         ref: frayed-profit
         gatewayUrlVarName: SAP_COMMERCE_CLOUD_COMMERCE_WEBSERVICES_424561E4_961B_41D2_B0D2_B4C3EF14C7D2_GATEWAY_URL
   sources:
-    commerce: mock-ccv2-adopt-team-2-tst-2
+    commerce: mp-mock-ccv2-adopt-team-2-tst-2
