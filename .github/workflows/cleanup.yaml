@@ -25,10 +25,12 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.PROD_KUBECONFIG }}      
       - name: Delete Prod Helm chart
-        run: helm del k8s-resources
+        run: helm uninstall k8s-resources
+        continue-on-error: true
       - uses: azure/k8s-set-context@v1
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.DEV_KUBECONFIG }}      
       - name: Delete Dev Helm chart
-        run: helm del k8s-resources
+        run: helm uninstall k8s-resources
+        continue-on-error: true
