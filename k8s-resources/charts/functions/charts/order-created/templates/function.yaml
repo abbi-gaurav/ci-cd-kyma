@@ -16,4 +16,4 @@ spec:
   - name: "BASE_SITE"
     value: electronics #change it if you have different base site
   - name: "GATEWAY_URL"
-    value: "$({{ .Values.global.bindings.ccv2.occ.gatewayUrlVarName }})" #update the name as in your created credential
+    value: "$({{ .Values.global.sources.commerce.occApi }})"
