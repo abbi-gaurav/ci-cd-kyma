@@ -4,7 +4,7 @@ metadata:
   name: {{ include "order-created.fullname" . }}
 spec:
   type: git
-  runtime: nodejs12
+  runtime: nodejs14
   source: {{ printf "%s-repository" .Release.Name }}
   reference: main
   baseDir: functions/order-created
