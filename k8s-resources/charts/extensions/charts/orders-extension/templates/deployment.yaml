@@ -24,6 +24,6 @@ spec:
               protocol: TCP
           env:
           - name: GATEWAY_URL
-            value: "$({{ .Values.global.sources.commerce.occApi }})"
+            value: "{{ .Values.global.sources.commerce.occApi }}"
           - name: BASE_SITE
             value: {{ .Values.config.baseSite }}
