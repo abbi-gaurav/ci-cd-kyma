@@ -12,7 +12,7 @@ spec:
       eventType:
         property: type
         type: exact
-        value: sap.kyma.custom.{{ .Values.global.sources.commerce }}.order.created.v1
+        value: sap.kyma.custom.{{ .Values.global.sources.commerce.name }}.order.created.v1
   protocol: ""
   protocolsettings: {}
   sink: http://{{ include "orders-extension.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local

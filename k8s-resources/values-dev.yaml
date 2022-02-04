@@ -2,4 +2,5 @@ global:
   sources:
     commerce:
       occApi: http://central-application-gateway.kyma-system.svc.cluster.local:8082/mp-gaurav-10-mock-ccv2/sap-commerce-cloud-commerce-webservices/sap-commerce-cloud-commerce-webservices
+      name: mp-gaurav-10-mock-ccv2
 
