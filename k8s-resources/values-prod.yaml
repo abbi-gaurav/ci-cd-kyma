@@ -1,8 +1,5 @@
 global:
-  bindings:
-    ccv2:
-      occ:
-        ref: tender-lamarr
-        gatewayUrlVarName: SAP_COMMERCE_CLOUD_COMMERCE_WEBSERVICES_08D2D1CE_3F88_4EAE_8D78_9B59A7D7D177_GATEWAY_URL
   sources:
-    commerce: mp-gaurav-10-mock-ccv2
+    commerce:
+      occApi: http://central-application-gateway.kyma-system.svc.cluster.local:8082/mp-gaurav-10-mock-ccv2/sap-commerce-cloud-commerce-webservices/sap-commerce-cloud-commerce-webservices
+      name: mp-gaurav-10-mock-ccv2
