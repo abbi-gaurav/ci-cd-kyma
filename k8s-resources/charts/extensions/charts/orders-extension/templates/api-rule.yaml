@@ -1,9 +1,10 @@
-apiVersion: gateway.kyma-project.io/v1alpha1
+apiVersion: gateway.kyma-project.io/v1beta1
 kind: APIRule
 metadata:
   name: {{ include "orders-extension.fullname" . }}
 spec:
   gateway: kyma-gateway.kyma-system.svc.cluster.local
+  host: orders-extension-{{ .Release.Namespace }}
   rules:
     - accessStrategies:
         - config: {}
@@ -14,7 +15,6 @@ spec:
         - PUT
         - DELETE
       path: /.*
-  service:
-    host: orders-extension-{{ .Release.Namespace }}
-    name: {{ include "orders-extension.fullname" . }}
-    port: 80
+      service:
+        name: {{ include "orders-extension.fullname" . }}
+        port: 80

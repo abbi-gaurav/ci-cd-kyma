@@ -1,9 +1,10 @@
-apiVersion: gateway.kyma-project.io/v1alpha1
+apiVersion: gateway.kyma-project.io/v1beta1
 kind: APIRule
 metadata:
   name: {{ include "get-orders.fullname" . }}
 spec:
   gateway: kyma-gateway.kyma-system.svc.cluster.local
+  host: get-orders-{{ .Release.Namespace }}
   rules:
   - accessStrategies:
     - config: {}
@@ -11,8 +12,7 @@ spec:
     methods:
     - GET
     path: /.*
-  service:
-    host: get-orders-{{ .Release.Namespace }}
-    name: {{ include "get-orders.fullname" . }}
-    port: 80
+    service:
+      name: {{ include "get-orders.fullname" . }}
+      port: 80
 status: {}

@@ -1,13 +1,14 @@
-apiVersion: serverless.kyma-project.io/v1alpha1
+apiVersion: serverless.kyma-project.io/v1alpha2
 kind: Function
 metadata:
   name: {{ include "get-orders.fullname" . }}
 spec:
-  type: git
-  runtime: nodejs14
-  source: {{ printf "%s-repository" .Release.Name }}
-  reference: main
-  baseDir: functions/get-orders
+  runtime: nodejs16
+  source:
+    gitRepository:
+      url: {{ .Values.global.repository.url }}
+      baseDir: /functions/get-orders
+      reference: main
   env:
   - name: REDIS_HOST
     value: {{ printf "%s-redis" .Release.Name }}
